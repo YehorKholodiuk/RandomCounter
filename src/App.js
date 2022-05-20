@@ -4,6 +4,10 @@ import {useState} from "react";
 
 function App() {
   const [count,setCount] = useState(['1'])
+    const [name,setName] = useState('')
+    const addToList = () => {
+    setCount([...count,name])
+    }
   const minus = () =>{
   setCount([...count,Math.random()])
   }
@@ -17,6 +21,8 @@ function App() {
         {count.map(el => <li key={el}>{el}</li>)}
       </ul>
       <button onClick={plus}>plus</button>
+        <input value={name} onChange = {e => setName(e.target.value)}/>
+        <button onClick={addToList}>Add to List</button>
     </div>
   );
 }
